@@ -11,5 +11,8 @@ public:
     float moveSpeed;
     float moveForce;
     float maxForce;
+    bool isMove;
+    float getPposX();
+    float getPposY();
 };
 

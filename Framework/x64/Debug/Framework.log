@@ -1,3 +1,4 @@
-﻿  Player.cpp
-C:\Users\Sunrin\Downloads\Framework_2020\Framework\Player.cpp(28,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Framework.vcxproj -> C:\Users\Sunrin\Downloads\Framework_2020\x64\Debug\Framework.exe
+﻿  GameScene.cpp
+C:\Users\skylove\Desktop\yoonsang\GamePrograming\Framework\GameScene.cpp(14,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\skylove\Desktop\yoonsang\GamePrograming\Framework\GameScene.cpp(19,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+  Framework.vcxproj -> C:\Users\skylove\Desktop\yoonsang\GamePrograming\x64\Debug\Framework.exe

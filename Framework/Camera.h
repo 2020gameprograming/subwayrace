@@ -9,6 +9,10 @@ private:
 	float screenHeight;
 	float halfWidth;
 	float halfHeight;
+	float moveSpeed;
+	float moveForce;
+	float maxForce;
+	bool isMove;
 
 	AABBCollider* screenBox;
 public:
@@ -22,6 +26,9 @@ public:
 public:
 	static Camera* GetCamera();
 	void Update();
+
+	float x;
+	float y;
 
 };
 

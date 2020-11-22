@@ -8,6 +8,7 @@ class GameScene :
 public:
     Player* player1;
     Player2* player2;
+    GameObject* background;
     void Initialize();
     void Update();
 

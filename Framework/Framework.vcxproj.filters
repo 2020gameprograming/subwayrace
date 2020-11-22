@@ -55,6 +55,9 @@
     <Filter Include="Framework\stdafx">
       <UniqueIdentifier>{bcc4263f-6a5e-40ad-93ff-066f8bdc8406}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{719ebacd-c284-460f-b228-4e400e5485e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D2DApp.cpp">
@@ -133,11 +136,15 @@
     <ClCompile Include="CircleCollider.cpp">
       <Filter>Framework\Components\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player2.cpp" />
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinApp.h">
@@ -225,11 +232,15 @@
     <ClInclude Include="CheckMemoryLeak.h">
       <Filter>Framework\stdafx</Filter>
     </ClInclude>
-    <ClInclude Include="MainScene.h" />
     <ClInclude Include="Button.h" />
-    <ClInclude Include="GameScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player2.h" />
+    <ClInclude Include="GameScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Vector2.inl">

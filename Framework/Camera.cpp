@@ -4,13 +4,20 @@
 
 #include "InputManager.h"
 #include "TimeManager.h"
-
+#include "Player.h"
+#include "GameScene.h"
 Camera::Camera()
 {
 	screenWidth = WinApp::GetScreenWidthF();
 	screenHeight = WinApp::GetScreenHeightF();
 	halfWidth = screenWidth * 0.5f;
 	halfHeight = screenHeight * 0.5f;
+	moveSpeed=300.0f; 
+	moveForce=1.0f; 
+	maxForce=10.0f;
+	
+
+
 
 	screenBox = new AABBCollider(this, -halfWidth,  -halfHeight, halfWidth, halfHeight);
 	//printf("w: %f, h: %f\n", halfWidth, halfHeight);
@@ -80,4 +87,29 @@ void Camera::Update()
 		transform->position.x += 100.0f * TimeManager::GetDeltaTime();
 	if (InputManager::GetKeyState('A'))
 		transform->position.x -= 100.0f * TimeManager::GetDeltaTime();*/
+	Vector2 input;
+	if (InputManager::GetKeyDown(VK_SPACE)) {
+		isMove = true;
+	}
+	if (isMove)
+		input.y += 1.0f;
+	if (InputManager::GetKeyPressed(VK_SPACE)) {
+
+		if (moveForce < maxForce)
+			moveForce = moveForce * 1.01;
+	}
+	if (InputManager::GetKeyPressed(VK_LSHIFT)) {
+		if (moveForce > 0.1)
+			moveForce = moveForce * 0.99;
+		else {
+			moveForce = 0;
+			isMove = false;
+		}
+	}
+	if (InputManager::GetKeyUp(VK_LSHIFT))
+		moveForce = 1;
+	if (input.y != 0.0f) {
+		input = input.normalized();
+		transform->position.y += moveSpeed * moveForce * input.y * TimeManager::GetDeltaTime();
+	}
 }

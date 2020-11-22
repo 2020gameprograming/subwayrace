@@ -9,5 +9,8 @@ public:
     void Update();
     void Move();
     float moveSpeed;
+    float maxForce;
+    float moveForce;
+    bool isMove;
 };
 
