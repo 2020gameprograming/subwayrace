@@ -1,4 +1,2 @@
 ﻿  GameScene.cpp
-C:\Users\skylove\Desktop\yoonsang\GamePrograming\Framework\GameScene.cpp(14,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\skylove\Desktop\yoonsang\GamePrograming\Framework\GameScene.cpp(19,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
-  Framework.vcxproj -> C:\Users\skylove\Desktop\yoonsang\GamePrograming\x64\Debug\Framework.exe
+  Framework.vcxproj -> C:\Users\alexy\OneDrive\바탕 화면\프로젝트\subwayrace\x64\Debug\Framework.exe

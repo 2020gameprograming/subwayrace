@@ -9,6 +9,8 @@ public:
     Player* player1;
     Player2* player2;
     GameObject* background;
+	GameObject* background2;
+	GameObject* station;
     void Initialize();
     void Update();
 

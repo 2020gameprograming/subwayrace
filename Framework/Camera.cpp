@@ -14,7 +14,8 @@ Camera::Camera()
 	halfHeight = screenHeight * 0.5f;
 	moveSpeed=300.0f; 
 	moveForce=1.0f; 
-	maxForce=10.0f;
+	maxForce=15.0f;
+	isMove = false;
 	
 
 
@@ -87,6 +88,12 @@ void Camera::Update()
 		transform->position.x += 100.0f * TimeManager::GetDeltaTime();
 	if (InputManager::GetKeyState('A'))
 		transform->position.x -= 100.0f * TimeManager::GetDeltaTime();*/
+	Move();
+}
+
+
+void Camera::Move() 
+{
 	Vector2 input;
 	if (InputManager::GetKeyDown(VK_SPACE)) {
 		isMove = true;
@@ -100,7 +107,7 @@ void Camera::Update()
 	}
 	if (InputManager::GetKeyPressed(VK_LSHIFT)) {
 		if (moveForce > 0.1)
-			moveForce = moveForce * 0.99;
+			moveForce = moveForce * 0.95;
 		else {
 			moveForce = 0;
 			isMove = false;
@@ -109,6 +116,7 @@ void Camera::Update()
 	if (InputManager::GetKeyUp(VK_LSHIFT))
 		moveForce = 1;
 	if (input.y != 0.0f) {
+
 		input = input.normalized();
 		transform->position.y += moveSpeed * moveForce * input.y * TimeManager::GetDeltaTime();
 	}

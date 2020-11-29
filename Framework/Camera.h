@@ -23,12 +23,12 @@ public:
 	static Vector2 ScreenPositionToWorld(const Vector2& screenPosition);
 	bool IsOnScreen(AABBCollider* col);
 
+	void Move();
+
 public:
 	static Camera* GetCamera();
 	void Update();
 
-	float x;
-	float y;
 
 };
 

@@ -3,7 +3,7 @@
 #include "TimeManager.h"
 
 
-Player2::Player2() :GameObject(L"resources/Player2.png"), moveSpeed(300.0f), maxForce(10.0f), moveForce(1.0f)
+Player2::Player2() :GameObject(L"resources/Player2.png"), moveSpeed(300.0f), maxForce(15.0f), moveForce(1.0f)
 {
 
 }
@@ -32,9 +32,9 @@ void Player2::Move()
 		if (moveForce < maxForce)
 			moveForce = moveForce * 1.01;
 	}
-	if (InputManager::GetKeyPressed(VK_RSHIFT)&&isMove) {
+	if (InputManager::GetKeyPressed(VK_RSHIFT)) {
 		if (moveForce > 0.1)
-			moveForce = moveForce * 0.99;
+			moveForce = moveForce * 0.95;
 		else {
 			moveForce = 0;
 			isMove = false;
@@ -42,10 +42,8 @@ void Player2::Move()
 	}
 	if (InputManager::GetKeyUp(VK_RSHIFT))
 		moveForce = 1;
-
 	if (input.y != 0.0f) {
 		input = input.normalized();
 		transform->position.y += moveSpeed * moveForce * input.y * TimeManager::GetDeltaTime();
-		std::cout << moveSpeed * moveForce << std::endl;
 	}
 }
