@@ -151,8 +151,11 @@
     <ClCompile Include="RenderInfo.cpp" />
     <ClCompile Include="RenderingManager.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="SheetAnimation.cpp" />
     <ClCompile Include="SoundEvent.cpp" />
+    <ClCompile Include="Station.cpp" />
+    <ClCompile Include="SubScreen.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="WinApp.cpp" />
@@ -183,9 +186,12 @@
     <ClInclude Include="RenderInfo.h" />
     <ClInclude Include="RenderingManager.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SheetAnimation.h" />
     <ClInclude Include="SoundEvent.h" />
+    <ClInclude Include="Station.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SubScreen.h" />
     <ClInclude Include="tag.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Transform.h" />

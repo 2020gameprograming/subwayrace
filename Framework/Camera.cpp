@@ -106,14 +106,14 @@ void Camera::Move()
 			moveForce = moveForce * 1.01;
 	}
 	if (InputManager::GetKeyPressed(VK_LSHIFT)) {
-		if (moveForce > 0.1)
+		if (moveForce > 0.2)
 			moveForce = moveForce * 0.95;
 		else {
 			moveForce = 0;
 			isMove = false;
 		}
 	}
-	if (InputManager::GetKeyUp(VK_LSHIFT))
+	if (InputManager::GetKeyUp(VK_LSHIFT)&&!isMove)
 		moveForce = 1;
 	if (input.y != 0.0f) {
 

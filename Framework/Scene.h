@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "RenderingManager.h"
 #include "CollisionManager.h"
+#include "SubScreen.h"
 
 class Scene
 {
@@ -54,5 +55,10 @@ public:
 	RenderingManager* GetRenderingManager();
 	CollisionManager* GetCollisionManager();
 	Camera* GetCamera();
+
+public:
+	SubScreen* subScreen;
+	void SubRender();
+	D2DApp* GetD2DApp();
 };
 

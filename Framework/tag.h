@@ -6,6 +6,7 @@ namespace Tag {
 		Player,
 		Bullet,
 		Enemy,
-		System
+		System,
+		Station
 	};
 }

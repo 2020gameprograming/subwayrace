@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "TimeManager.h"
+#include "Scene.h"
+#include "ScoreManager.h"
 
-
-Player::Player() :GameObject(L"resources/Player1.png"), moveSpeed(300.0f), moveForce(1.0f), maxForce(15.0f)
+Player::Player() :GameObject(L"resources/Player1.png"), moveSpeed(300.0f), moveForce(1.0f), maxForce(15.0f), isMove(false), score(0)
 {
-
+	col = new AABBCollider(this, renderer);
+	Scene::PushOnCurrentScene(col);
+	tag = Tag::Player;
 }
 
 
@@ -17,7 +20,6 @@ Player::~Player()
 void Player::Update() 
 {
 	Move();
-	std::cout << moveSpeed * moveForce << std::endl;
 }
 
 void Player::Move() 
@@ -34,14 +36,14 @@ void Player::Move()
 			moveForce = moveForce * 1.01;
 	}
 	if (InputManager::GetKeyPressed(VK_LSHIFT)) {
-		if (moveForce > 0.1)
+		if (moveForce > 0.2)
 			moveForce = moveForce * 0.95;
 		else {
 			moveForce = 0;
 			isMove = false;
 		}
 	}
-	if (InputManager::GetKeyUp(VK_LSHIFT))
+	if (InputManager::GetKeyUp(VK_LSHIFT)&&!isMove)
 		moveForce = 1;
 	if (input.y != 0.0f) {
 
@@ -50,3 +52,16 @@ void Player::Move()
 	}
 }
 
+
+
+void Player::OnCollision(GameObject* other) {
+	if (other->tag == Tag::Station) {
+		CurrentStation = (Station*)other;
+		if (!isMove&&!CurrentStation->is)
+		{
+			score += 100;
+			ScoreManager::AddScore(100);
+			CurrentStation->is = true;
+		}
+	}
+}

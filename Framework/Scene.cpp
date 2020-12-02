@@ -6,7 +6,7 @@
 Scene* Scene::currentScene = nullptr;
 Scene* Scene::nextScene = nullptr;
 
-Scene::Scene(): renderingManager(nullptr), camera(nullptr)
+Scene::Scene(): renderingManager(nullptr), collisionManager(nullptr), camera(nullptr), d2dApp(nullptr), subScreen(nullptr)
 {
 }
 
@@ -17,7 +17,7 @@ Scene::~Scene()
 		SAFE_DELETE(i);
 	}
 	gameObjectList.clear();
-	renderableList.clear();
+	renderableList.clear();	
 	SAFE_DELETE(renderingManager);
 	SAFE_DELETE(collisionManager);
 }
@@ -36,11 +36,14 @@ void Scene::SwapScene(D2DApp* d2dApp)
 	currentScene->collisionManager = new CollisionManager();
 	currentScene->camera = new Camera();
 	currentScene->Push(currentScene->camera);
+
 	currentScene->Initialize();
 }
 
 void Scene::ChangeScene(Scene* nextScene)
 {
+	if (Scene::nextScene)
+		SAFE_DELETE(Scene::nextScene);
 	Scene::nextScene = nextScene;
 }
 
@@ -152,9 +155,41 @@ void Scene::Render()
 	{
 		i->renderer->Render(Scene::d2dApp, i->transform, i->renderer->ComputeUIPosition(i->transform));
 	}
-		//renderingManager->Render(i->renderer, i->transform,camera->transform->position);
-		//renderingManager->Render(i->renderer, i->transform);
+
+	if (subScreen)
+	{
+		SubRender();
+		subScreen->renderer->Render(Scene::d2dApp, subScreen->transform, subScreen->renderer->ComputeUIPosition(subScreen->transform));
+	}
+
 	renderingManager->EndRender();
+}
+
+void Scene::SubRender()
+{
+	if (!subScreen)
+	{
+		printf("no subscreen\n");
+		return;
+	}
+	
+	subScreen->BeginSubRender();
+
+	for (auto& i : renderableList)
+	{
+		i->renderer->BasicRender(
+			subScreen->subRenderTarget,
+			i->transform,
+			nullptr,
+			i->renderer->ComputeWorldPosition(subScreen->subScreenSize, i->transform, subScreen->lookAtPosition));
+	}
+
+	subScreen->EndSubRender();
+}
+
+D2DApp* Scene::GetD2DApp()
+{
+	return d2dApp;
 }
 
 GameObject* Scene::Push(GameObject* gameObject)

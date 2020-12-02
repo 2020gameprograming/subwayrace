@@ -12,9 +12,9 @@ void GameScene::Initialize()
 	Push(background2);
 	background2->transform->SetPosition(0, 14740);
 
-	station = new GameObject(L"resources/station.png");
+	station = new Station();
 	Push(station);
-	station->transform->SetPosition(0, 5000);
+	station->transform->SetPosition(-200, 5000);
 
 
 	player1 = new Player();
@@ -28,10 +28,15 @@ void GameScene::Initialize()
 	player2->transform->SetPosition(100, 0);
 	player2->transform->SetScale(0.5, 0.5);
 
+	subScreen = new SubScreen(Vector2(850.0f, 1080.0f), GetD2DApp());
+	subScreen->transform->SetPosition(1435.0f,540.0f);
+	subScreen->target = player2->transform;
+	Push(subScreen);
 
+	PushUI(new ScoreManager());
 }
 
 void GameScene::Update()
 {
-	
+	std::cout << "업데이트" << std::endl;
 }

@@ -145,6 +145,11 @@
     <ClCompile Include="MainScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="SubScreen.cpp" />
+    <ClCompile Include="Station.cpp" />
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>Framework\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinApp.h">
@@ -240,6 +245,11 @@
     </ClInclude>
     <ClInclude Include="MainScene.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SubScreen.h" />
+    <ClInclude Include="Station.h" />
+    <ClInclude Include="ScoreManager.h">
+      <Filter>Framework\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

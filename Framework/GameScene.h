@@ -2,6 +2,9 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Player2.h"
+#include "SubScreen.h"
+#include "Station.h"
+#include "ScoreManager.h"
 class GameScene :
     public Scene
 {
@@ -10,7 +13,7 @@ public:
     Player2* player2;
     GameObject* background;
 	GameObject* background2;
-	GameObject* station;
+	Station* station;
     void Initialize();
     void Update();
 

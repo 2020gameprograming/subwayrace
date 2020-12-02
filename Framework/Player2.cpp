@@ -40,7 +40,7 @@ void Player2::Move()
 			isMove = false;
 		}
 	}
-	if (InputManager::GetKeyUp(VK_RSHIFT))
+	if (InputManager::GetKeyUp(VK_RSHIFT)&&!isMove)
 		moveForce = 1;
 	if (input.y != 0.0f) {
 		input = input.normalized();
