@@ -5,7 +5,7 @@
 
 Player2::Player2() :GameObject(L"resources/Player2.png"), moveSpeed(300.0f), maxForce(15.0f), moveForce(1.0f)
 {
-
+	tag = Tag::Player2;
 }
 
 

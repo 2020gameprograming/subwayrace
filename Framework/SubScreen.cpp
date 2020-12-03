@@ -32,7 +32,7 @@ SubScreen::~SubScreen()
 void SubScreen::Update()
 {
 	//예시적으로 이 화면을 따라다닙니다.
-	lookAtPosition = Vector2(target->position.x+350,target->position.y);
+	lookAtPosition = Vector2(target->position.x + 350,target->position.y);
 
 	/*if (InputManager::GetKeyState('A'))
 	{

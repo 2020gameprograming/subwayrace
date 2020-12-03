@@ -77,6 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,6 +130,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationInfo.cpp" />
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="BackGroundImage.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
@@ -165,6 +167,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationInfo.h" />
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="BackGroundImage.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CircleCollider.h" />

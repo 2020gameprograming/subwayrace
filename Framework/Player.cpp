@@ -51,17 +51,3 @@ void Player::Move()
 		transform->position.y += moveSpeed * moveForce * input.y * TimeManager::GetDeltaTime();
 	}
 }
-
-
-
-void Player::OnCollision(GameObject* other) {
-	if (other->tag == Tag::Station) {
-		CurrentStation = (Station*)other;
-		if (!isMove&&!CurrentStation->is)
-		{
-			score += 100;
-			ScoreManager::AddScore(100);
-			CurrentStation->is = true;
-		}
-	}
-}

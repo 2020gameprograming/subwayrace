@@ -14,6 +14,7 @@ public:
 	Font* font;
 	FontInfo* fontRenderer;
 	int score;
+	int score2;
 
 public:
 	ScoreManager();

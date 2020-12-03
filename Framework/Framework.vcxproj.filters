@@ -150,6 +150,7 @@
     <ClCompile Include="ScoreManager.cpp">
       <Filter>Framework\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="BackGroundImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinApp.h">
@@ -251,6 +252,7 @@
     <ClInclude Include="ScoreManager.h">
       <Filter>Framework\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="BackGroundImage.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vector2.inl">

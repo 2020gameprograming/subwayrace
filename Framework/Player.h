@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "Station.h"
 #include "AABBCollider.h"
 class Player :
     public GameObject
@@ -15,8 +14,6 @@ public:
     float maxForce;
 	int score;
     bool isMove;
-	void OnCollision(GameObject* other);
-	Station* CurrentStation;
 	AABBCollider* col;
 };
 
